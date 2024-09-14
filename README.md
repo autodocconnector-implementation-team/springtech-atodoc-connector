@@ -1,1 +1,1 @@
-# springtech-atodoc-connector 1
+# springtech-atodoc-connector

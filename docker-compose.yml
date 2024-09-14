@@ -1,0 +1,43 @@
+version: "3.7"
+#secrets:
+#  nginx_config:
+#    file: ./nginx.conf
+x-common-variables:
+  &common-variables
+  ConnectionStrings__main: "UserID=postgres;Password=admin;Server=postgresql;Port=5432;Database=sfadn;Integrated Security=true;Pooling=true;"
+  ASPNETCORE_ENVIRONMENT: Development
+  RabbitMQ__Hostname: rabbitmq
+services:
+  psql-db:
+    image: postgres:15-alpine
+    container_name: postgresql
+    ports:
+      - 5432:5432
+    volumes:
+      - psql-data:/var/lib/postgresql/data/pg_data
+    environment:
+      POSTGRES_PORT: 5432
+      PGDATA: /var/lib/postgresql/data/pg_data
+      POSTGRES_PASSWORD: admin
+  rabbitmq:
+    hostname: local
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbit-logs:/var/log/rabbitmq
+      - rabbit-data:/var/lib/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+volumes:
+  psql-data:
+  pgadmin4-data:
+  rabbit-logs:
+  rabbit-data:

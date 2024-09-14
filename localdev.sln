@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.WebApi", "src\Presentation\AutodocConnector.WebApi\AutodocConnector.WebApi.csproj", "{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{34C7E7F7-3EC6-4F8C-94AB-480AB7FC2014}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2D3EBD4A-DA72-48CF-B7F7-787461905954}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7937BE08-A48E-4110-A088-D9E49A3E25EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C1452AF9-CD65-4F3B-AEF0-82552C58CDF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8EC5D4FD-D61F-4445-834B-5135FC158848}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Domain", "src\Core\AutodocConnector.Domain\AutodocConnector.Domain.csproj", "{9289A520-537D-4C8D-9B34-355CB4C91EC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.Persistence", "src\Infrastructure\AutodocConnector.Persistence\AutodocConnector.Persistence.csproj", "{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Application", "src\Core\AutodocConnector.Application\AutodocConnector.Application.csproj", "{F5597A4F-BE52-47D1-B5B9-B2B470812D77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.Common", "src\Common\AutodocConnector.Common\AutodocConnector.Common.csproj", "{3A13D54F-A0C6-4449-989D-EC212A29FA58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA8BABC-64B0-4EE6-9173-BF32C8041A7A}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9289A520-537D-4C8D-9B34-355CB4C91EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9289A520-537D-4C8D-9B34-355CB4C91EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9289A520-537D-4C8D-9B34-355CB4C91EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9289A520-537D-4C8D-9B34-355CB4C91EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5597A4F-BE52-47D1-B5B9-B2B470812D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5597A4F-BE52-47D1-B5B9-B2B470812D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5597A4F-BE52-47D1-B5B9-B2B470812D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5597A4F-BE52-47D1-B5B9-B2B470812D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A13D54F-A0C6-4449-989D-EC212A29FA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A13D54F-A0C6-4449-989D-EC212A29FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A13D54F-A0C6-4449-989D-EC212A29FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A13D54F-A0C6-4449-989D-EC212A29FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6} = {34C7E7F7-3EC6-4F8C-94AB-480AB7FC2014}
+		{34C7E7F7-3EC6-4F8C-94AB-480AB7FC2014} = {CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}
+		{7937BE08-A48E-4110-A088-D9E49A3E25EB} = {CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}
+		{C1452AF9-CD65-4F3B-AEF0-82552C58CDF4} = {CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}
+		{8EC5D4FD-D61F-4445-834B-5135FC158848} = {CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}
+		{9289A520-537D-4C8D-9B34-355CB4C91EC1} = {C1452AF9-CD65-4F3B-AEF0-82552C58CDF4}
+		{E57B4DE1-CEE6-4B95-BE08-7F78C0445639} = {7937BE08-A48E-4110-A088-D9E49A3E25EB}
+		{F5597A4F-BE52-47D1-B5B9-B2B470812D77} = {C1452AF9-CD65-4F3B-AEF0-82552C58CDF4}
+		{3A13D54F-A0C6-4449-989D-EC212A29FA58} = {8EC5D4FD-D61F-4445-834B-5135FC158848}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F643D5CF-1BE3-4174-95F5-3E7E1D297E5D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER app
+WORKDIR /app
+EXPOSE 80
+
+
+# This stage is used to build the service project
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["Nuget.dev.config", "NuGet.config"]
+#COPY ["src/Common/AutodocConnector.Common/AutodocConnector.Common.csproj", "src/Common/AutodocConnector.Common/"]
+#COPY ["src/Core/AutodocConnector.Domain/AutodocConnector.Domain.csproj", "src/Core/AutodocConnector.Domain/"]
+#COPY ["src/Core/AutodocConnector.Application/AutodocConnector.Application.csproj", "src/Core/AutodocConnector.Application/"]
+#COPY ["src/Infrastructure/AutodocConnector.Persistence/AutodocConnector.Persistence.csproj", "src/Infrastructure/AutodocConnector.Persistence/"]
+COPY ["src/Presentation/AutodocConnector.WebApi/AutodocConnector.WebApi.csproj", "src/Presentation/AutodocConnector.WebApi/"]
+RUN dotnet restore "src/Presentation/AutodocConnector.WebApi/AutodocConnector.WebApi.csproj"
+COPY . .
+RUN dotnet build "src/Presentation/AutodocConnector.WebApi/AutodocConnector.WebApi.csproj" -c Release -o /app/build
+
+# This stage is used to publish the service project to be copied to the final stage
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "src/Presentation/AutodocConnector.WebApi/AutodocConnector.WebApi.csproj" -c Release -o /app/publish
+
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "AutodocConnector.WebApi.dll"]

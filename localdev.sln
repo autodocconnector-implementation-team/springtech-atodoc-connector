@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.WebApi", "src\Presentation\AutodocConnector.WebApi\AutodocConnector.WebApi.csproj", "{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.WebApi", "src\Presentation\AutodocConnector.WebApi\AutodocConnector.WebApi.csproj", "{7B21A9ED-2456-41C3-BD2B-F35AA60CEFD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CF72B0D9-1EB2-4D2A-8B34-2E58181BF52B}"
 EndProject
@@ -19,18 +19,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8EC5D4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Domain", "src\Core\AutodocConnector.Domain\AutodocConnector.Domain.csproj", "{9289A520-537D-4C8D-9B34-355CB4C91EC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.Persistence", "src\Infrastructure\AutodocConnector.Persistence\AutodocConnector.Persistence.csproj", "{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Persistence", "src\Infrastructure\AutodocConnector.Persistence\AutodocConnector.Persistence.csproj", "{E57B4DE1-CEE6-4B95-BE08-7F78C0445639}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Application", "src\Core\AutodocConnector.Application\AutodocConnector.Application.csproj", "{F5597A4F-BE52-47D1-B5B9-B2B470812D77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutodocConnector.Common", "src\Common\AutodocConnector.Common\AutodocConnector.Common.csproj", "{3A13D54F-A0C6-4449-989D-EC212A29FA58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutodocConnector.Common", "src\Common\AutodocConnector.Common\AutodocConnector.Common.csproj", "{3A13D54F-A0C6-4449-989D-EC212A29FA58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA8BABC-64B0-4EE6-9173-BF32C8041A7A}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.gitignore = .gitignore
-		docker-compose.yml = docker-compose.yml
+		.env = .env
+		docker-build.bat = docker-build.bat
+		Dockerfile.dev = Dockerfile.dev
 		LICENSE = LICENSE
+		docker-compose.yml = docker-compose.yml
+		Nuget.dev.config = Nuget.dev.config
 		README.md = README.md
 	EndProjectSection
 EndProject

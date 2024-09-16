@@ -1,28 +1,45 @@
-version: "3.7"
-#secrets:
-#  nginx_config:
-#    file: ./nginx.conf
-x-common-variables:
-  &common-variables
-  ConnectionStrings__main: "UserID=postgres;Password=admin;Server=postgresql;Port=5432;Database=sfadn;Integrated Security=true;Pooling=true;"
-  ASPNETCORE_ENVIRONMENT: Development
-  RabbitMQ__Hostname: rabbitmq
 services:
-  psql-db:
-    image: postgres:15-alpine
-    container_name: postgresql
+  redis:
+    image: redis:${REDIS_VERSION_TAG}
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+  postgres:
+    image: postgres:${POSTGRES_VERSION_TAG}
+    container_name: db
+    restart: always
+    #command: -c ssl=on -c ssl_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem -c ssl_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+    environment: 
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: ${ADMIN_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - psql-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    volumes:
-      - psql-data:/var/lib/postgresql/data/pg_data
+  pgadmin4:
+    image: elestio/pgadmin:${PGADMIN_VERSION_TAG}
+    container_name: pgadmin4
+    restart: always
     environment:
-      POSTGRES_PORT: 5432
-      PGDATA: /var/lib/postgresql/data/pg_data
-      POSTGRES_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - 8081:8080
+    volumes:
+        - pgadmin4-data:/pgadmin4/servers.json
+    links:
+      - postgres
   rabbitmq:
     hostname: local
-    image: rabbitmq:3-management-alpine
+    image: rabbitmq:3-management
     container_name: 'rabbitmq'
+    environment:
+      RABBITMQ_DEFAULT_USER: ${ADMIN_EMAIL}
+      RABBITMQ_DEFAULT_PASS: ${ADMIN_PASSWORD}
     ports:
       - 5672:5672
       - 15672:15672
@@ -34,8 +51,18 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+  atodoc-connector-backend:
+    image: autodoc-connector-backend:dev
+    build:
+      dockerfile: Dockerfile.dev
+    container_name: atodoc-connector-backend
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 8082:8080
+    links:
+      - rabbitmq
+      - postgres 
 volumes:
   psql-data:
   pgadmin4-data:

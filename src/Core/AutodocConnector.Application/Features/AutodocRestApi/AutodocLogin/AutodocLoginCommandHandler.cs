@@ -21,7 +21,7 @@ namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin
         public async Task<AutodocLoginResponse> Handle(AutodocLoginRequest request, CancellationToken cancellationToken)
         {
             validator.Validate(request);
-            var user = await userRepository.GetUserByLoginCredentialsAsync(request.UserName,request.Password);
+            var user = await userRepository.AutodocLoginAsync(request.UserName,request.Password);
 
             return new AutodocLoginResponse
             {

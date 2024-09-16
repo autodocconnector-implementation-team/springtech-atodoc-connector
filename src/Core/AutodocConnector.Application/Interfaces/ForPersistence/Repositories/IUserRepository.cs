@@ -15,6 +15,6 @@ namespace AutodocConnector.Application.Interfaces.ForPersistence.Repositories
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        Task<User> GetUserByLoginCredentialsAsync(string username, string password);
+        Task<User> AutodocLoginAsync(string username, string password);
     }
 }

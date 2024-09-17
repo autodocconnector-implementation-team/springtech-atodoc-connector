@@ -16,8 +16,4 @@
     <ProjectReference Include="..\..\Core\AutodocConnector.Domain\AutodocConnector.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

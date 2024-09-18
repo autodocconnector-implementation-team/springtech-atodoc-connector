@@ -4,18 +4,18 @@
 public class AutodocLoginCommandHandler : IRequestHandler<AutodocLoginRequest, AutodocLoginResponse>
 {
     private readonly AutodocLoginValidator validator;
-    private readonly IUserRepository userRepository;
+    private readonly IUserRepository repository;
 
-    public AutodocLoginCommandHandler(AutodocLoginValidator validator,IUserRepository userRepository)
+    public AutodocLoginCommandHandler(AutodocLoginValidator validator,IUserRepository repository)
     {
         this.validator = validator;
-        this.userRepository = userRepository;
+        this.repository = repository;
     }
 
     public async Task<AutodocLoginResponse> Handle(AutodocLoginRequest request, CancellationToken cancellationToken)
     {
         validator.Validate(request);
-        var user = await userRepository.AutodocLoginAsync(request.UserName,request.Password);
+        var user = await repository.AutodocLoginAsync(request.UserName,request.Password);
 
         return new AutodocLoginResponse
         {

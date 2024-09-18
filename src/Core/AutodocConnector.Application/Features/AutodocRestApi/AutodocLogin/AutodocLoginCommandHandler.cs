@@ -1,4 +1,6 @@
-﻿namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
+﻿using AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin.DTOs;
+
+namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
 
 public class AutodocLoginCommandHandler : IRequestHandler<AutodocLoginRequest, AutodocLoginResponse>
 {

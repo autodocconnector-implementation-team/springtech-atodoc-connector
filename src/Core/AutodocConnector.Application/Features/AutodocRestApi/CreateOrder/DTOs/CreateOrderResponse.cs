@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AutodocConnector.Application.Features.AutodocRestApi.CreateOrder.DTOs;
 
-namespace AutodocConnector.Application.Features.AutodocRestApi.CreateOrder.DTOs
+public record CreateOrderResponse : AutodocResponse
 {
-    public record CreateOrderResponse : AutodocResponse
-    {
-
-    }
+    public string OrderId { get; set; }
+    public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 }

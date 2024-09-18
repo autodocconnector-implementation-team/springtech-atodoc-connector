@@ -1,7 +1,4 @@
-﻿using AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin.DTOs;
-
-namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
-
+﻿namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
 public class AutodocLoginValidator : AbstractValidator<AutodocLoginRequest>
 {
     public AutodocLoginValidator() 

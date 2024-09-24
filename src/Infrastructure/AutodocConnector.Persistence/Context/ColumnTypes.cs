@@ -1,5 +1,8 @@
 ﻿namespace AutodocConnector.Persistence.Context;
 
+/// <summary>
+/// Postgre columntypes for ORM definations
+/// </summary>
 public static class ColumnTypes
 {
     public const string UniqueIdentifier = "uuid";
@@ -9,6 +12,7 @@ public static class ColumnTypes
     public const string Date = "date";
     public const string UTCTimestamp = "timestamp";
     public const string UTCTime = "time";
+    public const string DateTimeOffset = "time with time zone";
 
     public const string Integer = "integer";
     public const string BigInt = "bigint";

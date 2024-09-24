@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using DbContext = AutodocConnector.Persistence.Context.DbContext;
 
 namespace AutodocConnector.Persistence.Extensions.Public;
 

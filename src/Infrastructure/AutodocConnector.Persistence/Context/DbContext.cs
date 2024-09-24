@@ -1,4 +1,5 @@
-﻿using AutodocConnector.Persistence.Models;
+﻿using AutodocConnector.Persistence.Extensions;
+using AutodocConnector.Persistence.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
@@ -13,9 +14,9 @@ using System.Threading.Tasks;
 namespace AutodocConnector.Persistence.Context
 {
     /// <summary>
-    /// The db context of the identity database. Data seeding is defined here.
+    /// The db context of the persistance layer of autodoc connector.
     /// </summary>
-    internal class DbContext : IdentityDbContext
+    internal class DbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         /// <summary>
         /// Databse context on this Database schema works
@@ -35,31 +36,36 @@ namespace AutodocConnector.Persistence.Context
         /// </summary>
         /// <param name="options">Otions of create</param>
         public DbContext(DbContextOptions<DbContext> options) : base(options) { }
-        
+
+        /// <summary>
+        /// Products
+        /// </summary>
+        public DbSet<Product> Products => Set<Product>();
+
+        /// <summary>
+        /// Countries
+        /// </summary>
+        public DbSet<Country> Countries => Set<Country>();
+
+        public DbSet<AutodocUser> AutodocUsers => Set<AutodocUser>();
+
+        /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
             // Addd the Postgres Extension for UUID generation
-            //builder.HasPostgresExtension(UUID_GENERATOR);
-            // define configurations
-            builder.ApplyConfiguration(new ProductConfiguration());
-
-            //Data seeding, so the identity db has a role already.
-
-            var userRoleId = "714d2baf-6432-4510-b52a-08c1017049e3";
-
-            var roles = new List<IdentityRole>
-            {
-                new IdentityRole
-                {
-                    Id = userRoleId,
-                    ConcurrencyStamp = userRoleId,
-                    Name = "User",
-                    NormalizedName = userRoleId.ToUpper()
-                }
-            };
-
-            builder.Entity<IdentityRole>().HasData(roles);
+            builder.HasPostgresExtension(UUID_GENERATOR);
+            
+            // ORM configurations
+            builder.ApplyConfiguration(new EntityConfigurations.ProductConfiguration());
+            builder.ApplyConfiguration(new EntityConfigurations.CountryConfiguration() { SetName = nameof(Countries).ToKebabCase() });
+            builder.ApplyConfiguration(new EntityConfigurations.RoleConfiguration<Role>());
+            builder.ApplyConfiguration(new EntityConfigurations.RoleClaimConfiguration<RoleClaim>());
+            builder.ApplyConfiguration(new EntityConfigurations.UserRoleConfiguration<UserRole>());
+            builder.ApplyConfiguration(new EntityConfigurations.UserConfiguration<User>());
+            builder.ApplyConfiguration(new EntityConfigurations.UserClaimConfiguration<UserClaim>());
+            builder.ApplyConfiguration(new EntityConfigurations.UserLoginConfiguration<UserLogin>());
+            builder.ApplyConfiguration(new EntityConfigurations.UserTokenConfiguration<UserToken>());
+            builder.ApplyConfiguration(new EntityConfigurations.AutodocUserConfiguration<AutodocUser>());
         }
     }
 }

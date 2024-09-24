@@ -1,19 +1,40 @@
 ﻿using AutodocConnector.Persistence.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ColumnTypes = AutodocConnector.Persistence.Context.ColumnTypes;
 
 namespace AutodocConnector.Persistence.Models;
 
-internal class ProductConfiguration : MasterDataEntityConfiguration<Product>
+internal abstract partial class EntityConfigurations
 {
-    public override void Configure(EntityTypeBuilder<Product> builder)
+    /// <summary>
+    /// ORM configuration of Country entity
+    /// </summary>
+    internal class ProductConfiguration : MasterDataEntityConfiguration<Product>
     {
-        builder.ToTable(nameof(Product).ToLower());
+        /// <inheritdoc/>
+        public override void Configure(EntityTypeBuilder<Product> builder)
+        {
+            base.Configure(builder);
 
-        builder.Property(e => e.Active)
-            .HasColumnName(nameof(MasterDataEntity.Active).ToLower())
-            .HasColumnType(ColumnTypes.Boolean)
-            .IsRequired();
+            builder.Property(e => e.ArticleNumber)
+                .HasColumnName(nameof(Product.ArticleNumber).ToKebabCase())
+                .HasColumnType(ColumnTypes.Text);
+ 
+            builder.Property(e => e.Name)
+                .HasColumnName(nameof(Product.Name).ToKebabCase())
+                .HasColumnType(ColumnTypes.Text);
+
+            builder.Property(e => e.Description)
+                .HasColumnName(nameof(Product.Description).ToKebabCase())
+                .HasColumnType(ColumnTypes.Text);
+
+            builder.Property(e => e.Ean)
+                .HasColumnName(nameof(Product.Ean).ToKebabCase())
+                .HasColumnType(ColumnTypes.Text);
+
+            builder.Property(e => e.Stocks)
+                .HasColumnName(nameof(Product.Stocks).ToKebabCase())
+                .HasColumnType(ColumnTypes.Integer);
+        }
     }
 }

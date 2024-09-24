@@ -1,14 +1,14 @@
 ﻿namespace AutodocConnector.Persistence.Models;
 
 /// <summary>
-/// Base entity - derived from this the all persistence entity
+/// Base entity - derived from this the all persistence entity which has unique id
 /// </summary>
 internal abstract class Entity
 {
     /// <summary>
-    /// Unique identifier which represents this entity in persistence layer
+    /// Unique identifier which identifies the entity in persistence layer.
     /// </summary>
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.Empty;
 
     /// <summary>
     /// Entity created timestamp 

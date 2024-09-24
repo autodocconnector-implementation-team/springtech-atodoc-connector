@@ -1,5 +1,12 @@
-﻿namespace AutodocConnector.Persistence.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
+namespace AutodocConnector.Persistence.Models;
+
+/// <summary>
+/// Product entity
+/// </summary>
+[Index(nameof(ArticleNumber), IsUnique = true)]
+[Index(nameof(Ean), IsUnique = true)]
 internal class Product : MasterDataEntity
 {
     /// <summary>
@@ -15,7 +22,7 @@ internal class Product : MasterDataEntity
     /// <summary>
     /// Detail product description
     /// </summary>
-    public string Description { get; set; } = string.Empty;
+    public string? Description { get; set; }
 
     /// <summary>
     /// EAN code of product

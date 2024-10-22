@@ -9,9 +9,9 @@ public class GetTrackingNumbersValidator : AbstractValidator<GetTrackingNumbersR
         // orderID cannot be empty
         RuleFor(x => x).Must((_, request, context) =>
         {
-            if (request.OrderID == null)
+            if (request.OrderId == null)
             {
-                context.AddFailure("The OrderID cannot be empty");
+                context.AddFailure("The OrderId cannot be empty");
                 return false;
             }
             return true;

@@ -17,11 +17,11 @@ public class GetTrackingNumberCommandHandler : IRequestHandler<GetTrackingNumber
         try
         {
             _validator.Validate(request);
-            List<Parcel> parcels = await _repository.GetParcelsByOrderID(request.OrderID);           
+            List<Parcel> parcels = await _repository.GetParcelsByOrderId(request.OrderId);           
 
             return new GetTrackingNumbersResponse()
             {
-                OrderID = request!.OrderID,
+                OrderId = request!.OrderId,
                 Parcels = parcels
             };
         }

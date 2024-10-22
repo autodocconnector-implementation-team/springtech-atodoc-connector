@@ -12,8 +12,8 @@ namespace AutodocConnector.Application.Interfaces.ForPersistence.Repositories
         /// <summary>
         /// Get parcel entity list by orderID
         /// </summary>
-        /// <param name="orderID">orderID from request</param>
+        /// <param name="orderId">orderID from request</param>
         /// <returns>List of Parcel entity</returns>
-        Task<List<Parcel>> GetParcelsByOrderID(string orderID);
+        Task<List<Parcel>> GetParcelsByOrderId(string orderId);
     }
 }

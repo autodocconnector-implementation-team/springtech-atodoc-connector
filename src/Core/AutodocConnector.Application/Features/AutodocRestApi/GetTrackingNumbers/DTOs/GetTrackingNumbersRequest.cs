@@ -16,6 +16,6 @@ public record GetTrackingNumbersRequest : IRequest<GetTrackingNumbersResponse>
     /// <summary>
     /// Order id - null if not present
     /// </summary>
-    public string? OrderID { get; set; }
+    public string OrderId { get; set; } = String.Empty;
 }
 

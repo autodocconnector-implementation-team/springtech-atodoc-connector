@@ -17,12 +17,12 @@ public class GetOrderStatusCommandHandler : IRequestHandler<GetOrderStatusReques
         try
         {
             _validator.Validate(request);
-            OrderStatus orderStatus = await _repository.GetOrderStatusByOrderId(request.OrderId);
+            OrderStatus orderStatus = await _repository.GetOrderStatusByOrderIdAsync(request.OrderId);
             return new GetOrderStatusResponse()
             {
                 OrderId = request!.OrderId,
                 OrderStatus = orderStatus.StatusName
-                //OrderStatus = orderStatus.StatusId         TODO either status name or id
+                //OrderStatus = orderStatus.StatusId         TODO either status name or id - to be decided
             };
         }
         catch (Exception ex)

@@ -12,5 +12,5 @@ public interface IGetOrderStatusRepository
     /// </summary>
     /// <param name="orderId">order Id</param>
     /// <returns>OrderStatus entity</returns>
-    Task<OrderStatus> GetOrderStatusByOrderId(string orderId);
+    Task<OrderStatus> GetOrderStatusByOrderIdAsync(string orderId);
 }

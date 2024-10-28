@@ -17,7 +17,7 @@ public class GetTrackingNumberCommandHandler : IRequestHandler<GetTrackingNumber
         try
         {
             _validator.Validate(request);
-            List<Parcel> parcels = await _repository.GetParcelsByOrderId(request.OrderId);           
+            List<Parcel> parcels = await _repository.GetParcelsByOrderIdAsync(request.OrderId);           
 
             return new GetTrackingNumbersResponse()
             {

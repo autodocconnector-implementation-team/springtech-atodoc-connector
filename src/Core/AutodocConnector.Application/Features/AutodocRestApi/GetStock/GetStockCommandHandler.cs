@@ -19,13 +19,21 @@ public class GetStockCommandHandler : IRequestHandler<GetStockRequest, GetStockR
             Product? product = null;
             if (request.ProductId != null)
             {
-                product = await _repository.GetProductByArticleNumberAsync(request.ProductId, request.Country);
+                product = await _repository.GetProductByArticleNumber(request.ProductId, request.Country);
+                if (product is null)
+                {
+                    throw new ApplicationException($"Product not found by this product id: {request.ProductId}");
+                }
             }
             else
             {
                 if (request.EAN != null)
                 {
-                    product = await _repository.GetProductByEANAsync(request.EAN, request.Country);
+                    product = await _repository.GetProductByEAN(request.EAN, request.Country);
+                    if (product is null)
+                    {
+                        throw new ApplicationException($"Product not found by this ean: {request.EAN}");
+                    }
                 }
             }
             return new GetStockResponse

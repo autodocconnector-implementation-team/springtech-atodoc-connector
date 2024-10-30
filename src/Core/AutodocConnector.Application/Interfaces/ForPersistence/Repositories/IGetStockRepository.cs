@@ -10,12 +10,12 @@ public interface IGetStockRepository
     /// </summary>
     /// <param name="articleNumber">Springtech internal article number</param>
     /// <returns>Product entity</returns>
-    Task<Product> GetProductByArticleNumberAsync(string articleNumber, string? priceCountry);
+    Task<Product?> GetProductByArticleNumber(string articleNumber, string? priceCountry);
 
     /// <summary>
     /// Get product entity by EAN code
     /// </summary>
     /// <param name="ean">Ean code of product</param>
     /// <returns></returns>
-    Task<Product> GetProductByEANAsync(string ean, string? priceCountry);
+    Task<Product?> GetProductByEAN(string ean, string? priceCountry);
 }

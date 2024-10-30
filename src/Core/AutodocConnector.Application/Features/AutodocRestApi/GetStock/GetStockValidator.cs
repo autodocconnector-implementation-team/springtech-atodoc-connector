@@ -12,8 +12,7 @@ public class GetStockRequestValidator: AbstractValidator<GetStockRequest>
         {
             if (request.ProductId == null && request.EAN == null)
             {
-                context.AddFailure("The ProductId and EAN cannot be both empty");
-                return false;
+                throw new ApplicationException("The ProductId and EAN cannot be both empty");
             }
             return true;
         });

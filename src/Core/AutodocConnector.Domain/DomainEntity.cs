@@ -16,14 +16,15 @@ namespace AutodocConnector.Domain
         /// <summary>
         /// Id of this entity
         /// </summary>
+        private string? _id;
         public string? Id
         {
-            get => Id;
+            get => _id;
             set
             {
-                if (Id == null)
+                if (_id == null)
                 {
-                    Id = value;
+                    _id = value;
                 }
                 else
                 {

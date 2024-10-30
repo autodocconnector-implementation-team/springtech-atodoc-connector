@@ -51,5 +51,6 @@ public static class IServiceCollectionExtensions
     {
         services.AddScoped<IGetStockRepository, GetStockRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ICancelOrderRepository, CancelOrderRepository>();
     }
 }

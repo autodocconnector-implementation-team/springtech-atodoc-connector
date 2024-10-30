@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutodocConnector.Application.Interfaces.ForPersistence.Repositories;
+using AutodocConnector.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -17,6 +19,7 @@ public static class IServiceCollectionExtensions
     /// <param name="configuration"></param>
     public static void AddPersistenceLayer(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddAutoMapper(typeof(MappingProfile));
         services.AddDbContext(configuration);
         services.AddRepositories();
     }
@@ -35,7 +38,7 @@ public static class IServiceCollectionExtensions
 
         services.AddDbContext<DbContext>(o =>
         {
-            o.UseNpgsql(connectionString, x => x.MigrationsHistoryTable("__EFMigrationsHistory", DbContext.DB_SCHEMA ));
+            o.UseNpgsql(connectionString, x => x.MigrationsHistoryTable("__EFMigrationsHistory", DbContext.DB_SCHEMA));
             o.EnableSensitiveDataLogging();
         });
     }
@@ -46,6 +49,7 @@ public static class IServiceCollectionExtensions
     /// <param name="services"></param>
     private static void AddRepositories(this IServiceCollection services)
     {
-        //services.AddScoped(typeof(IFolderRepository), typeof(FolderRepository));
+        services.AddScoped<IGetStockRepository, GetStockRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 }

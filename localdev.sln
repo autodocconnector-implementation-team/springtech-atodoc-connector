@@ -28,12 +28,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA8BABC-64B0-4EE6-9173-BF32C8041A7A}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
-		.gitignore = .gitignore
 		.env = .env
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		docker-build.bat = docker-build.bat
+		docker-compose.yml = docker-compose.yml
 		Dockerfile.dev = Dockerfile.dev
 		LICENSE = LICENSE
-		docker-compose.yml = docker-compose.yml
 		Nuget.dev.config = Nuget.dev.config
 		README.md = README.md
 	EndProjectSection

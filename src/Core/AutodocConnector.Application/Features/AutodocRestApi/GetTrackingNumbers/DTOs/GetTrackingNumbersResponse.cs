@@ -14,7 +14,13 @@ namespace AutodocConnector.Application.Features.AutodocRestApi.GetTrackingNumber
 /// </summary>
 public record GetTrackingNumbersResponse : AutodocResponse
 {
+    /// <summary>
+    /// Order Id
+    /// </summary>
     public string OrderId { get; set; } = String.Empty;
+    /// <summary>
+    /// List of parcels that belong to the same order
+    /// </summary>
     public List<Parcel> Parcels { get; set; } = new List<Parcel>();
 }
 

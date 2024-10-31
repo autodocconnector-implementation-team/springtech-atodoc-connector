@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 namespace AutodocConnector.Domain.OrderStatus.Models
 {
     /// <summary>
-    /// OrderStatus domain entity
-    /// e.g. 1 = in progress, 2 = order shipped, 3 = order canceled, 4 = returned, 5 = ordered, 6 = delivered to customer
+    /// OrderStatus enum
     /// </summary>
-    public class OrderStatus : DomainEntity, IAggregateRoot
+    public enum OrderStatus 
     {
-        /// <summary>
-        /// Status Identifier
-        /// </summary>
-        public int StatusId { get; set; }
-
-        /// <summary>
-        /// Status Name
-        /// </summary>
-        public string StatusName { get; set; } = string.Empty;
+        InProgress,
+        OrderShipped,
+        OrderCancelled,
+        Returned,
+        Ordered,
+        DeliveredToCustomer
     }
 }

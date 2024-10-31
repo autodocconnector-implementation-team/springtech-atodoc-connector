@@ -5,5 +5,8 @@
 /// </summary>
 public record GetOrderStatusRequest : IRequest<GetOrderStatusResponse>
 {
+    /// <summary>
+    /// Order id
+    /// </summary>
     public string OrderId { get; set; } = string.Empty;
 }

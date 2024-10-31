@@ -21,8 +21,7 @@ public class GetOrderStatusCommandHandler : IRequestHandler<GetOrderStatusReques
             return new GetOrderStatusResponse()
             {
                 OrderId = request!.OrderId,
-                OrderStatus = orderStatus.StatusName
-                //OrderStatus = orderStatus.StatusId         TODO either status name or id - to be decided
+                OrderStatus = orderStatus
             };
         }
         catch (Exception ex)

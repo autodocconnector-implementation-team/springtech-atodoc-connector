@@ -1,0 +1,13 @@
+﻿using AutodocConnector.Application.Interfaces.ForPersistence.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AutodocConnector.Persistence.Repositories
+{
+    public class CreateOrderRepository : ICreateOrderRepository
+    {
+    }
+}

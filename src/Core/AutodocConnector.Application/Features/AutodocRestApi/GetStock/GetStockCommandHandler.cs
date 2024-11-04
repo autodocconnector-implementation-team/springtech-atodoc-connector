@@ -2,10 +2,10 @@
 
 public class GetStockCommandHandler : IRequestHandler<GetStockRequest, GetStockResponse>
 {
-    private readonly GetStockRequestValidator _validator;
+    private readonly GetStockValidator _validator;
     private readonly IGetStockRepository _repository;
 
-    public GetStockCommandHandler(GetStockRequestValidator validator, IGetStockRepository repository)
+    public GetStockCommandHandler(GetStockValidator validator, IGetStockRepository repository)
     {
         _validator = validator;
         _repository = repository;

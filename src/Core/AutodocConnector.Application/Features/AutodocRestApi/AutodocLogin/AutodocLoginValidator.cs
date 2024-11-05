@@ -1,5 +1,4 @@
 ﻿namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
-
 public class AutodocLoginValidator : AbstractValidator<AutodocLoginRequest>
 {
     public AutodocLoginValidator() 

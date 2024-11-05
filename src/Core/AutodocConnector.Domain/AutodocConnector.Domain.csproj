@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Order\Events\" />
+    <Folder Include="Order\Models\" />
     <Folder Include="Products\Events\" />
     <Folder Include="Users\Events\" />
   </ItemGroup>

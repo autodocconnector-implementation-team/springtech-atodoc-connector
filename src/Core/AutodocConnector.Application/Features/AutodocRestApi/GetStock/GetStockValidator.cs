@@ -1,11 +1,11 @@
 ﻿namespace AutodocConnector.Application.Features.AutodocRestApi.GetStock;
 
-public class GetStockRequestValidator: AbstractValidator<GetStockRequest>
+public class GetStockValidator: AbstractValidator<GetStockRequest>
 {
     /// <summary>
     /// GetStockRequest fluent validator class
     /// </summary>
-    public GetStockRequestValidator()
+    public GetStockValidator()
     {
         // ProductId and EAN code cannot both be empty
         RuleFor(x => x).Must((_, request, context) =>

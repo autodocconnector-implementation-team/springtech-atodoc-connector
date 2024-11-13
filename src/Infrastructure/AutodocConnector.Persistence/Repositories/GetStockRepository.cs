@@ -1,5 +1,4 @@
 ﻿using AutodocConnector.Application.Interfaces.ForPersistence.Repositories;
-using DbModels = AutodocConnector.Persistence.Models;
 using DomainModels = AutodocConnector.Domain.Products.Models;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -26,21 +25,8 @@ internal class GetStockRepository : IGetStockRepository
     /// <inheritdoc/>
     public async Task<DomainModels.Product?> GetProductByArticleNumber(string articleNumber, string? priceCountry)
     {
-        //var product = await _dbContext.Products.ProjectTo<DomainModels.Product>(_mapper.ConfigurationProvider)
-        //    .FirstOrDefaultAsync(x => x.ArticleNumber == articleNumber);
-        var product = await _dbContext.Products.FirstOrDefaultAsync(x => x.ArticleNumber == articleNumber);
-        return new DomainModels.Product
-        {
-            Active = product.Active,
-            ActivePrice = new DomainModels.ProductPrice { Price = 0 },
-            ArticleNumber = product.ArticleNumber,
-            CreatedAt = product.Created,
-            Description = product.Description,
-            Ean = product.Ean,
-            Id = product.Id.ToString(),
-            Name = product.Name,
-            Stocks = product.Stocks,
-        };
+        return await _dbContext.Products.ProjectTo<DomainModels.Product>(_mapper.ConfigurationProvider)
+            .FirstOrDefaultAsync(x => x.ArticleNumber == articleNumber);
     }
 
     /// <inheritdoc/>

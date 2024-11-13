@@ -3,6 +3,7 @@
 /// <summary>
 /// Autodoc api base response abstarct class - parent of all Response object
 /// </summary>
+/// TODO: Maybe a generic type?
 public abstract record AutodocResponse
 {
     /// <summary>
@@ -17,6 +18,10 @@ public abstract record AutodocResponse
     /// </summary>
     public string ErrorMessage { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Set error in response
+    /// </summary>
+    /// <param name="message">Error message</param>
     public void SetError(string message) 
     { 
         ErrorMessage = message;

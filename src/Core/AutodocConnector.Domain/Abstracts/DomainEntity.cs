@@ -6,17 +6,17 @@ using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutodocConnector.Domain
+namespace AutodocConnector.Domain.Abstracts
 {
     /// <summary>
     /// Abstract domain entity - parent of all domain entity
     /// </summary>
     public abstract class DomainEntity
     {
+        private string? _id;
         /// <summary>
         /// Id of this entity
         /// </summary>
-        private string? _id;
         public string? Id
         {
             get => _id;
@@ -28,7 +28,7 @@ namespace AutodocConnector.Domain
                 }
                 else
                 {
-                    throw new DomainException("Id is immutable!");
+                    throw new Exceptions.DomainLayerException("Id is immutable!");
                 }
             }
         }
@@ -42,7 +42,7 @@ namespace AutodocConnector.Domain
         /// TODO: Change to Identity user domainobject!
         /// </summary>
         public string? CreatedBy { get; set; }
-        
+
         /// <summary>
         /// This entity is active or not
         /// </summary>
@@ -69,7 +69,7 @@ namespace AutodocConnector.Domain
 
         public bool IsTransient()
         {
-            return this.Id == null;
+            return Id == null;
         }
 
         public override bool Equals(object? obj)
@@ -78,22 +78,22 @@ namespace AutodocConnector.Domain
             {
                 return false;
             }
-            if (Object.ReferenceEquals(this, obj))
+            if (ReferenceEquals(this, obj))
             {
                 return true;
             }
-            if (this.GetType() != obj.GetType())
+            if (GetType() != obj.GetType())
             {
                 return false;
             }
             DomainEntity item = (DomainEntity)obj;
-            if (item.IsTransient() || this.IsTransient())
+            if (item.IsTransient() || IsTransient())
             {
                 return false;
             }
             else
             {
-                return item.Id == this.Id;
+                return item.Id == Id;
             }
         }
 
@@ -105,7 +105,7 @@ namespace AutodocConnector.Domain
             {
                 if (!_requestedHashCode.HasValue)
                 {
-                    _requestedHashCode = this.Id!.GetHashCode() ^ 31;
+                    _requestedHashCode = Id!.GetHashCode() ^ 31;
                 }
                 return _requestedHashCode.Value;
             }
@@ -117,9 +117,9 @@ namespace AutodocConnector.Domain
 
         public static bool operator ==(DomainEntity left, DomainEntity right)
         {
-            if (Object.Equals(left, null))
+            if (Equals(left, null))
             {
-                return Object.Equals(right, null) ? true : false;
+                return Equals(right, null) ? true : false;
             }
             else
             {

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\AutodocConnector.Common\AutodocConnector.Common.csproj" />
     <ProjectReference Include="..\..\Core\AutodocConnector.Application\AutodocConnector.Application.csproj" />
     <ProjectReference Include="..\..\Core\AutodocConnector.Domain\AutodocConnector.Domain.csproj" />
   </ItemGroup>

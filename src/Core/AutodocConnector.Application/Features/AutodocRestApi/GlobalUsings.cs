@@ -5,3 +5,4 @@ global using AutodocConnector.Domain.Products.Models;
 global using AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin.DTOs;
 global using AutodocConnector.Application.Features.AutodocRestApi.CreateOrder.DTOs;
 global using AutodocConnector.Domain.Users.Models;
+global using Exceptions = AutodocConnector.Common.Exceptions;

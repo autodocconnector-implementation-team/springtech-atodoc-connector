@@ -1,15 +1,7 @@
 ﻿using AutodocConnector.Persistence.Extensions;
 using AutodocConnector.Persistence.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutodocConnector.Persistence.Context
 {
@@ -67,5 +59,21 @@ namespace AutodocConnector.Persistence.Context
             builder.ApplyConfiguration(new EntityConfigurations.UserTokenConfiguration<UserToken>());
             builder.ApplyConfiguration(new EntityConfigurations.AutodocUserConfiguration<AutodocUser>());
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //            => optionsBuilder.LogTo(LogQuerysToFile);
+
+        //private void LogQuerysToFile(string logLine)
+        //{
+        //    if (string.IsNullOrEmpty(logLine) || !logLine.Contains("Executed DbCommand"))
+        //    {
+        //        return;
+        //    }
+        //    FileStream fileStream = new FileStream($@"D:\temp\{this.ContextId.InstanceId}_{this.ContextId.Lease}.ef.log.txt", FileMode.Append);
+        //    using (StreamWriter w = new StreamWriter(fileStream))
+        //    {
+        //        w.WriteLine(logLine);
+        //    }
+        //}
     }
 }

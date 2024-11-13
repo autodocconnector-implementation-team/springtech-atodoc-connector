@@ -1,4 +1,6 @@
-﻿namespace AutodocConnector.Persistence.Models;
+﻿using AutodocConnector.Application.Interfaces.ForPresentation;
+
+namespace AutodocConnector.Persistence.Models;
 
 /// <summary>
 /// Autodoc technikal user for autodoc authentication methode only

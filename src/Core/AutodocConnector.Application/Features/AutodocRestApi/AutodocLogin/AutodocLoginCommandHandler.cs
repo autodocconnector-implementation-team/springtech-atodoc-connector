@@ -1,26 +1,33 @@
 ﻿namespace AutodocConnector.Application.Features.AutodocRestApi.AutodocLogin;
 
-
-public class AutodocLoginCommandHandler : IRequestHandler<AutodocLoginRequest, AutodocLoginResponse>
+/// <summary>
+/// Handle AutodocLogin request
+/// </summary>
+public class AutodocLoginCommandHandler : IRequestHandler<AutodocLoginRequest, AutodocUser>
 {
     private readonly AutodocLoginValidator validator;
-    private readonly IUserRepository repository;
+    private readonly IAutodocUserRepository repository;
 
-    public AutodocLoginCommandHandler(AutodocLoginValidator validator,IUserRepository repository)
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="validator">Validator service</param>
+    /// <param name="repository">Repsitory service</param>
+    public AutodocLoginCommandHandler(AutodocLoginValidator validator,IAutodocUserRepository repository)
     {
         this.validator = validator;
         this.repository = repository;
     }
 
-    public async Task<AutodocLoginResponse> Handle(AutodocLoginRequest request, CancellationToken cancellationToken)
+    /// <summary>
+    /// Request handler
+    /// </summary>
+    /// <param name="request">request</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>Autodoc user</returns>
+    public async Task<AutodocUser> Handle(AutodocLoginRequest request, CancellationToken cancellationToken)
     {
         validator.Validate(request);
-        var user = await repository.AutodocLoginAsync(request.UserName,request.Password);
-
-        return new AutodocLoginResponse
-        {
-            UserId = user.Id,
-            CountryCode = user.CountryCode,
-        };
+        return await repository.AutodocLogin(request.UserName!,request.Password!);
     }
 }

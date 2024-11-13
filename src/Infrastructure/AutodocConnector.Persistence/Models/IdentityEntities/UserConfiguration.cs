@@ -75,8 +75,7 @@ internal abstract partial class EntityConfigurations
 
             builder.Property(e => e.SecurityStamp)
                 .HasColumnName(nameof(User.SecurityStamp).ToKebabCase())
-                .HasColumnType(ColumnTypes.UniqueIdentifier)
-                .HasConversion(typeof(Guid));
+                .HasColumnType(ColumnTypes.Text);
 
             builder.Property(e => e.TwoFactorEnabled)
                 .HasColumnName(nameof(User.TwoFactorEnabled).ToKebabCase())

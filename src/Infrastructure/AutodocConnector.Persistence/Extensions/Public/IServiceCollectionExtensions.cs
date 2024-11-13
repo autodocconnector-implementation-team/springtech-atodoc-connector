@@ -49,8 +49,10 @@ public static class IServiceCollectionExtensions
     /// <param name="services"></param>
     private static void AddRepositories(this IServiceCollection services)
     {
+        services.AddIdentity<Models.User, Models.Role>().AddEntityFrameworkStores<DbContext>();
+
         services.AddScoped<IGetStockRepository, GetStockRepository>();
-        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IAutodocUserRepository, AutodocUserRepository>();
         services.AddScoped<ICancelOrderRepository, CancelOrderRepository>();
         services.AddScoped<IGetTrackingNumbersRepository, GetTrackingNumbersRepository>();
         services.AddScoped<IGetOrderStatusRepository, GetOrderStatusRepository>();

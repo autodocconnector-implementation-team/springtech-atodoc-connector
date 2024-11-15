@@ -1,4 +1,16 @@
 # springtech-atodoc-connector 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=autodocconnector-implementation-team_springtech-atodoc-connector)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=bugs)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=coverage)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=autodocconnector-implementation-team_springtech-atodoc-connector&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=autodocconnector-implementation-team_springtech-atodoc-connector)
 
 ![image](https://github.com/user-attachments/assets/39987753-a1b2-4235-885d-f38496b3832b)

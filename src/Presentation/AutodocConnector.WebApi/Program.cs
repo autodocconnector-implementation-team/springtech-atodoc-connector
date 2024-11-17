@@ -46,4 +46,4 @@ app.MapControllers();
 app.UseMiddleware<AutodocAuthenticationMiddleware>();
 app.UseExceptionHandler(x => {});
 
-app.Run();
+await app.RunAsync();

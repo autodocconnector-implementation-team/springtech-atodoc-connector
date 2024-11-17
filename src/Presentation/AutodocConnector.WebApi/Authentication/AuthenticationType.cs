@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿namespace AutodocConnector.WebApi.Authentication;
+
+/// <summary>
 /// Type of authentication methode
 /// </summary>
 internal enum AuthenticationType

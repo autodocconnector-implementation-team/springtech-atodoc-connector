@@ -1,5 +1,6 @@
 ﻿using AutodocConnector.Application.Interfaces.ForPresentation;
 using AutodocConnector.Domain.Users.Models;
+using AutodocConnector.WebApi.Authentication;
 using Newtonsoft.Json;
 
 namespace AutodocConnector.WebApi.Services;

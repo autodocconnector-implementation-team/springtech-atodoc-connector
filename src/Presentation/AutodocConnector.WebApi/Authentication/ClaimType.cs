@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿namespace AutodocConnector.WebApi.Authentication;
+
+/// <summary>
 /// Defined claims for ClaimsIdentity
 /// </summary>
 internal enum ClaimType

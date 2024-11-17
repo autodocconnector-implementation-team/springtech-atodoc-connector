@@ -22,7 +22,7 @@ internal class Claim<TType, TValue>
         _value = value;
     }
 
-    private TType _type;
+    private readonly TType _type;
     /// <summary>
     /// Get type of claim as string
     /// </summary>
@@ -31,6 +31,6 @@ internal class Claim<TType, TValue>
     /// <summary>
     /// Get value of claim as serialized string
     /// </summary>
-    private TValue _value;
+    private readonly TValue _value;
     public string Value => JsonConvert.SerializeObject(_value);
 }
